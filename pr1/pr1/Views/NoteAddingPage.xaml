@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.NoteAddingPage"
+               Background = "{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}"
+
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="20">
+                <Label Text="Название" FontSize="Medium" />
+                <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
+
+                <Label Text="Текст" FontSize="Medium" />
+                <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+
+                <!--<Label Text="Дата" FontSize="Medium" />
+     <DatePicker x:Name="DatePickerDate" DateSelected="DatePickerDate_DateSelected"></DatePicker>-->
+
+                <Label Text="Важность" FontSize="Medium" />
+                <Editor Text="{Binding Importance, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
+             
+                <Label Text="Категории" FontSize="Medium" />
+
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Entry 
+            Text="{Binding Category, Mode=TwoWay}"
+            x:Name="entryMain"
+            Grid.Row="0"
+            TextChanged="OnEntryChanged" />
+                    <ListView
+            x:Name="lstSuggest"
+            Grid.Row="1"
+            IsVisible="False"
+            ItemTapped="ItemSelected"
+            SeparatorVisibility="None" />
+                </Grid>
+
+
+
+                <StackLayout Orientation="Horizontal" >
+                    <Button Text="Сохранить"
+                              Clicked="OnSaveButton_Clicked"/>
+
+
+
+                    <Button Text="Удалить"
+                        Clicked="OnDeleteButton_Clicked"/>
+                </StackLayout>
+               
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

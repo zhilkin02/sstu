@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.ListGroups"
+             Title="Список групп">
+
+    <!--<RelativeLayout>
+        --><!-- Фон с градиентом и картинкой --><!--
+        <BoxView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+           RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#3435a5" Offset="0.0"/>
+                    <GradientStop Color="#7b74f9" Offset="0.5"/>
+                    <GradientStop Color="#3737a7" Offset="1.0"/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+        <Image Source="sstu1.png" Aspect="AspectFill"
+               WidthRequest="450" HeightRequest="450" Opacity="0.15"
+               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2, Constant=-100}"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15, Constant=-100}" />
+
+        --><!-- Контейнер для белых элементов (поиск и список) --><!--
+        <Frame BackgroundColor="Transparent" CornerRadius="15" Padding="20"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+               RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+            <StackLayout>
+                <Label Text="Выберите учебную группу"
+                       FontSize="25" FontAttributes="Bold"
+                       TextColor="Black" HorizontalOptions="Center" FontFamily="Tahoma"/>
+
+                --><!-- SearchBar в белом прямоугольнике --><!--
+                <Frame BackgroundColor="White" CornerRadius="15" Padding="10" Margin="0,5,0,5">
+                    <SearchBar x:Name="searchBar" Placeholder="Поиск группы" TextChanged="OnSearchTextChanged"/>
+                </Frame>
+
+                --><!-- Список групп --><!--
+                <ListView x:Name="groupListView" ItemTapped="OnGroupTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Frame BackgroundColor="White" CornerRadius="15" Padding="10" Margin="0,5,0,5">
+                                        <Label Text="{Binding GroupName}" />
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+    </RelativeLayout>-->
+
+</ContentPage>

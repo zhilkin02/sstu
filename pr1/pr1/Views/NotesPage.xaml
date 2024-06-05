@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.NotesPage"
+              Background = "{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}"
+                Title="Заметки"
+             Shell.FlyoutBehavior="Disabled"
+
+             >
+    <!--<Shell.TitleView>
+        <StackLayout Orientation="Horizontal" Padding="10" HorizontalOptions="EndAndExpand">
+            <Button
+            BackgroundColor="Transparent"
+            Text="Добавить"
+            Clicked="AddButton_Clicked"
+            Margin="0"
+            HorizontalOptions="End"
+        />
+            <Button
+            BackgroundColor="Transparent"
+            ImageSource="menu.png"
+            Clicked="ButtonL_Clicked"
+            Margin="0"
+            HorizontalOptions="End"
+        />
+        </StackLayout>
+    </Shell.TitleView>-->
+
+
+
+    <ContentPage.ToolbarItems>
+        
+        <ToolbarItem Text="Добавить"  Clicked="AddButton_Clicked" />
+        <ToolbarItem  Clicked="ButtonL_Clicked" >
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="menu.png" />
+
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Image Source="sstu1.png" Aspect="AspectFill"
+           VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"
+           Opacity="0.1" WidthRequest="500" HeightRequest="500"/>
+        
+       
+        <CollectionView x:Name="collectionView"
+                    Margin="20"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelectionChanged"
+                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#20FFFFFF" CornerRadius="15" Padding="10" Margin="0,5,0,5" >
+
+                        <StackLayout Margin="20">
+
+
+                            <StackLayout Orientation="Horizontal">
+                                <Label FontAttributes="Bold"  Text="{Binding Text}"
+                                   FontSize="Medium"/>
+                            </StackLayout>
+
+                            <Label Text="{Binding Description}"
+                               TextColor="Black"
+                               FontSize="Medium"/>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Category}"
+                                   TextColor="Blue"
+                                   FontSize="Small"/>
+                                <Label Text="Важность:"
+                                  FontSize="Small"/>
+                                <Label Text="{Binding Importance}"
+                                   TextColor="Red"
+                                   FontSize="Small"/>
+                            </StackLayout>
+                            <Label Text="{Binding Date}"
+                               TextColor="Silver"
+                               FontSize="Small"/>
+
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+
+
+    <!-- ContentView с градиентом вокруг кнопок -->
+        <!--
+        <ContentView  x:Name="сontentView"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+            <ContentView.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="Gray" Offset="0.0"/>
+                    <GradientStop Color="LightGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </ContentView.Background>
+
+            -->
+        <!-- StackLayout с кнопками -->
+        <!--
+            <StackLayout RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.91, Constant=0}"
+                     RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                     VerticalOptions="End" Orientation="Horizontal" Margin="10">
+                <Button TextColor="Black" BackgroundColor="Transparent" Text="Расписание"  Clicked="ButtonSchedule_Clicked" />
+                <Button TextColor="Black" BackgroundColor="Transparent" Text="Заметки" Clicked="ButtonNotes_Clicked" />
+                <Button TextColor="Black" BackgroundColor="Transparent" Text="Настройки" Clicked="ButtonSetting_Clicked"/>
+            </StackLayout>
+        </ContentView>-->
+
+
+
+
+
+    
+</ContentPage>

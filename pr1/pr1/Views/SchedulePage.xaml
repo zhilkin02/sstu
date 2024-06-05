@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.SchedulePage"          
+             Background="{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}"
+             Title="Расписание"
+             Shell.FlyoutBehavior="Disabled"
+             >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Clicked="ButtonL_Clicked" >
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="menu.png" />
+
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="auto" />
+
+        </Grid.RowDefinitions>
+        <Grid.GestureRecognizers>
+            <SwipeGestureRecognizer Threshold="20" Direction="Left" Swiped="OnSwipedDay" />
+            <SwipeGestureRecognizer Threshold="20" Direction="Right" Swiped="OnSwipedDay" />
+        </Grid.GestureRecognizers>
+        <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween" Direction="Row" Padding="5" Grid.Row="0">
+
+            <!-- Добавление SwipeGestureRecognizer -->
+            <FlexLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Threshold="20" Direction="Left" Swiped="OnSwiped" />
+                <SwipeGestureRecognizer Threshold="20" Direction="Right" Swiped="OnSwiped" />
+            </FlexLayout.GestureRecognizers>
+            <!-- Кнопки меню -->
+            <Button x:Name="ButtonL" Text="❮" ClassId="ButtonL"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="8%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0" />
+            <Button x:Name="Button1" Text="Пн 12.10" ClassId="Button1"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"  />
+            <Button x:Name="Button2" Text="Вт 13.10" ClassId="Button2"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"/>
+            <Button x:Name="Button3" Text="Ср 14.10" ClassId="Button3"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"/>
+            <Button x:Name="Button4" Text="Чт 15.10" ClassId="Button4"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"/>
+            <Button x:Name="Button5" Text="Пт 16.10" ClassId="Button5"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"/>
+            <Button x:Name="Button6" Text="Сб 17.10" ClassId="Button6"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="13%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0"/>
+            <Button x:Name="ButtonR" Text="❯"
+                    ClassId="ButtonR"
+            BackgroundColor="#90FFFFFF" TextColor="Black"
+            CornerRadius="10" FlexLayout.Basis="8%"
+            Clicked="Button_Clicked_sch" HeightRequest="60" Margin="1" Padding="0" />
+        </FlexLayout>
+        <CollectionView x:Name="collectionView" 
+          Margin="20"
+          SelectionMode="Single"
+          SelectionChanged="OnSelectionChanged"
+            Grid.Row="1"       
+         >
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                       ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <StackLayout.GestureRecognizers>
+                            <SwipeGestureRecognizer Threshold="20" Direction="Left" Swiped="OnSwipedDay" />
+                            <SwipeGestureRecognizer Threshold="20" Direction="Right" Swiped="OnSwipedDay" />
+                        </StackLayout.GestureRecognizers>
+                        <Frame BackgroundColor="#90FFFFFF" CornerRadius="15" Padding="10" Margin="0,5,0,5" HorizontalOptions="Start">
+                            <Label x:Name="HourLabel" Text="{Binding Hour}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                        </Frame>
+                        <Frame BackgroundColor="#90FFFFFF" CornerRadius="15" Padding="10" Margin="0,5,0,5" >
+                            <StackLayout>
+
+                                <Label ClassId="SubjectLabel" Text="{Binding Subject}" FontSize="Large"  FontAttributes="Bold" TextColor="Black"/>
+                                <Label ClassId="TypeLabel" Text="{Binding Type}" FontSize="Medium" TextColor="Black"/>
+                                <Label ClassId="RoomLabel" Text="{Binding Room}" FontSize="Medium" TextColor="Black"/>
+
+                                <Label ClassId="TeacherLabel" Text="{Binding Teacher}" FontSize="Medium" TextColor="Black"/>
+
+                                <Entry x:Name="AssignmentEntry" ClassId="AssignmentEntry" Text="{Binding Assignment}" Unfocused="AssignmentEntry_Unfocused" FontSize="Small"
+                                       Placeholder="Заметки" TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

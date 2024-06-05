@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.SchedulePage"          
+             Background="{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}"
+             Title="Расписание"
+             Shell.FlyoutBehavior="Disabled"
+             >
+    <!--<Shell.NavBarIsVisible>
+        <OnIdiom x:TypeArguments="x:Boolean">
+            <OnIdiom.Phone>True</OnIdiom.Phone>
+            <OnIdiom.Tablet>False</OnIdiom.Tablet>
+        </OnIdiom>
+    </Shell.NavBarIsVisible>-->
+
+    <!--<Shell.TitleView>
+        <StackLayout Orientation="Horizontal"   Padding="10" HorizontalOptions="EndAndExpand" >
+            <Button 
+                 BackgroundColor="Transparent"
+                    ImageSource="menu.png"
+               Clicked="ButtonL_Clicked"
+                 CornerRadius="10"
+                 WidthRequest="40"
+                 HeightRequest="40"
+                    HorizontalOptions="EndAndExpand"
+                 />
+        </StackLayout>
+    </Shell.TitleView>-->
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem  Clicked="ButtonL_Clicked" >
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="menu.png" />
+
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="auto" />
+
+        </Grid.RowDefinitions>
+
+        <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" HorizontalOptions="Center"  Padding="5"             
+                 Grid.Row="0"    >
+            <!-- Кнопки меню с настройками стиля -->
+            <Button Text="Пн 12.10 "
+         BackgroundColor="#90FFFFFF"
+         TextColor="Black"
+         CornerRadius="10"
+           WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+         />
+
+            <Button Text="Вт 13.10"
+         BackgroundColor="#90FFFFFF"
+         TextColor="Black"
+         CornerRadius="10"
+          WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+        />
+            <Button Text="Ср 14.10 "
+   BackgroundColor="#90FFFFFF"
+   TextColor="Black"
+   CornerRadius="10"
+     WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+   />
+
+            <Button Text="Чт 15.10"
+   BackgroundColor="#90FFFFFF"
+   TextColor="Black"
+   CornerRadius="10"
+   WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+  />
+            <Button Text="Пт 16.10 "
+   BackgroundColor="#90FFFFFF"
+   TextColor="Black"
+   CornerRadius="10"
+     WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+   />
+
+            <Button Text="Сб 17.10"
+   BackgroundColor="#90FFFFFF"
+   TextColor="Black"
+   CornerRadius="10"
+   WidthRequest="50"
+  HeightRequest="60"
+    Padding="0"                   
+Margin="2"
+  />
+
+        </StackLayout>
+        <!--<Image Source="sstu1.png" Aspect="AspectFill "  Grid.Row="1"
+       WidthRequest="450" HeightRequest="450" Opacity="0.2"
+       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2, Constant=-100}"
+       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.15, Constant=-100}"/>-->
+        <!-- Добавьте ваше меню с кнопками днями недели и датой здесь -->
+        <!-- Пример: <Label Text="Понедельник" />
+                    <Label Text="Вторник" />
+                    ...
+                    <Label Text="Дата" /> -->
+        <!--<StackLayout>-->
+           
+            <CollectionView x:Name="collectionView" 
+          Margin="20"
+          SelectionMode="Single"
+          SelectionChanged="OnSelectionChanged"
+            Grid.Row="1"                >
+                
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                       ItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    
+                    <DataTemplate>
+                    <StackLayout>
+                        
+                            <Frame BackgroundColor="#90FFFFFF" CornerRadius="15" Padding="10" Margin="0,5,0,5" HorizontalOptions="Start">
+                                <Label Text="{Binding Time}" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
+                            </Frame>
+
+                            <Frame BackgroundColor="#90FFFFFF" CornerRadius="15" Padding="10" Margin="0,5,0,5" >
+                            <StackLayout>
+
+                                <Label Text="{Binding Subject}" FontSize="Large"  FontAttributes="Bold" TextColor="Black"/>
+                                <Label Text="{Binding LessonType}" FontSize="Medium" TextColor="Black"/>
+                                <Label Text="{Binding Classroom}" FontSize="Medium" TextColor="Black"/>
+                                <Label Text="{Binding Teacher}" FontSize="Medium" TextColor="Black"/>
+                                <Entry Text="{Binding Assignment}" FontSize="Small" Placeholder="Домашнее задание" TextColor="Black"/>
+                                </StackLayout>
+
+                        </Frame>
+                    </StackLayout>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--</StackLayout>-->
+    </Grid>
+    
+</ContentPage>

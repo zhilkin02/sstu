@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.AppShell"
+       xmlns:views="clr-namespace:pr1.Views"
+           FlyoutBackground ="{AppThemeBinding Light={StaticResource SheLight}, Dark={StaticResource ShellDark}}" AnchorY="0"
+                 Shell.FlyoutBehavior="Disabled"
+
+       >
+    
+    
+    <!--FlyoutWidth="300"
+      FlyoutHeight="400"-->
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Transparent"
+                 HeightRequest="80">
+                <Image TranslationX="100"
+                      Source="sstu1.png"
+                      Opacity="0.8" 
+                      Rotation="34" 
+                       />
+                <Label Text="Меню"
+                      TextColor="White"
+                       FontSize="50"
+                      FontAttributes="Bold"
+                       TranslationX="-80"
+                      HorizontalTextAlignment="Center"
+                      VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <!--<Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout MinimumHeightRequest="100">
+                <Label Text="https://www.sstu.ru/"
+                      TextColor="#20FFFFFF"
+                      FontAttributes="Bold"
+                      HorizontalOptions="Center" AnchorY="10" />
+                <Label Text=" " />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>-->
+
+    <FlyoutItem Title="Главная" Icon="icon_about.png" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate views:StartPage}" />
+    </FlyoutItem>
+
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="Main">
+        <FlyoutItem.Icon>
+            <FontImageSource Color="{AppThemeBinding Dark=White, Light={StaticResource SystemGray5Dark}}" />
+        </FlyoutItem.Icon>
+
+        <ShellContent Icon="rasp_icon2.png" Title="Расписание" Route="SchedulePage" 
+                      ContentTemplate="{DataTemplate views:SchedulePage}"  />
+        <ShellContent Icon="zam_icon2.png" Title="Заметки" 
+                      ContentTemplate="{DataTemplate views:NotesPage}" Route="NotesPage" />
+        <ShellContent Icon="set_icon1.png" Title="Настройки" 
+                      ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage"/>
+    </FlyoutItem>
+
+    <!--<FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="Main2" >
+        <FlyoutItem.Icon>
+            <FontImageSource  Color="{AppThemeBinding Dark=White, Light={StaticResource SystemGray5Dark}}" />
+        </FlyoutItem.Icon>
+        <ShellContent Title="Расписание" Icon="rasp_icon2.png" Route="SchedulePage" 
+                      ContentTemplate="{DataTemplate views:SchedulePage}" />
+        <ShellContent   Icon="zam_icon2.png" Title="Заметки" 
+                        ContentTemplate="{DataTemplate views:NotesPage}" Route="NotesPage" FlyoutItemIsVisible="False"/>
+        <ShellContent Icon="set_icon1.png"  Title="Настройки" 
+                      ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" FlyoutItemIsVisible="False"/>
+    </FlyoutItem>
+
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="Main3"  >
+        <FlyoutItem.Icon>
+            <FontImageSource  Color="{AppThemeBinding Dark=White, Light={StaticResource SystemGray5Dark}}" />
+        </FlyoutItem.Icon>
+        
+        <ShellContent Icon="rasp_icon2.png" Title="Расписание"  Route="SchedulePage" 
+                      ContentTemplate="{DataTemplate views:SchedulePage}" FlyoutItemIsVisible="False"/>
+        <ShellContent Icon="zam_icon2.png"  Title="Заметки" 
+                      ContentTemplate="{DataTemplate views:NotesPage}" Route="NotesPage" FlyoutItemIsVisible="False"/>
+        <ShellContent Icon="set_icon1.png" Title="Настройки" 
+                      ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
+
+    </FlyoutItem>-->
+ 
+    
+    <TabBar>
+        <ShellContent Title="Расписание" Icon="icon_feed.png" Route="SchedulePage" ContentTemplate="{DataTemplate views:SchedulePage}" />
+        <ShellContent Icon="icon_feed.png" Title="Заметки" ContentTemplate="{DataTemplate views:NotesPage}" Route="NotesPage" />
+        <ShellContent Icon="icon_feed.png" Title="Настройки" ContentTemplate="{DataTemplate views:SettingsPage}" Route="SettingsPage" />
+
+
+
+        <Tab Title="Cats">
+            <ShellContent
+  Title="Расписание"
+  Icon="icon_about.png"
+  ContentTemplate="{DataTemplate views:StartPage}"
+          
+          />
+
+        </Tab>
+        <Tab Title="Cats">
+            <ShellContent
+        Title="Расписание"
+        Icon="icon_about.png"
+        ContentTemplate="{DataTemplate views:StartPage}"
+        
+        />
+            <ShellContent
+      
+          
+          Title="Заметки"
+          Icon="icon_about.png"
+          ContentTemplate="{DataTemplate views:NotesPage}"
+            />
+            <ShellContent
+             Title="Настройки"
+            Icon="icon_about.png"
+            ContentTemplate="{DataTemplate views:SettingsPage}"/>
+        </Tab>
+
+        <Tab Title="Cats">
+            <ShellContent
+          Title="Настройки"
+          Icon="icon_about.png"
+          ContentTemplate="{DataTemplate views:SettingsPage}"/>
+
+        </Tab>
+
+    </TabBar>
+ 
+
+    <Shell.Resources>
+
+   
+
+        <ResourceDictionary>
+            
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}" />
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary3}, Dark={StaticResource DarkPrimary3}}"/>
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}"  />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+            
+         <!--Default Styles for all Flyout Items
+         https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes-->
+         
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimary3}, Dark={StaticResource DarkPrimary3}}"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value= "{AppThemeBinding Light={StaticResource LightPrimary3}, Dark={StaticResource DarkPrimary3}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            
+         <!--Custom Style you can apply to any Flyout Item-->
+         
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimary}, Dark={StaticResource DarkPrimary}}"  />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+
+            
+        </ResourceDictionary>
+        
+    </Shell.Resources>
+
+    <!-- 
+     When the Flyout is visible this defines the content to display in the flyout.
+     FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
+     https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
+ -->
+    
+    
+
+
+
+
+    <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
+
+    <!--<MenuItem  Text="Logout\Выход" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+ </MenuItem>-->
+
+    <!--
+     TabBar lets you define content that won't show up in a flyout menu. When this content is active
+     the flyout menu won't be available. This is useful for creating areas of the application where 
+     you don't want users to be able to navigate away from. If you would like to navigate to this 
+     content you can do so by calling 
+     await Shell.Current.GoToAsync("//LoginPage");
+ -->
+
+
+
+    
+
+
+</Shell>

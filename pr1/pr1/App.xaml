@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.App">
+    <Application.Resources>
+        
+        <ResourceDictionary>
+
+
+            <Color x:Key="LightPrimary">#949191</Color>
+            <Color x:Key="DarkPrimary">#1C1C1E</Color>
+            <Color x:Key="LightPrimary3">#000</Color>
+            <Color x:Key="DarkPrimary3">#D3D3D5</Color>
+            <Color x:Key="LightPrimary4">#949191</Color>
+            <Color x:Key="DarkPrimary4">#1C1C1E</Color>
+            <Color x:Key="LightFon">#fdeed3</Color>
+            <Color x:Key="DarkFon">#24282b</Color>
+
+            <Color x:Key="Primary2">#2196F3</Color>
+            <Color x:Key="Primary">#d09b76</Color>
+            <Color x:Key="Primary3">#000</Color>
+
+            <Color x:Key="SystemGray5Dark">#2C2C2E</Color>
+            <Color x:Key="CardBackground">White</Color>
+            <Color x:Key="CardBackgroundDark">#1C1C1E</Color>
+
+            <Color x:Key="LightRadioButtonColor">#F3F2F1</Color>
+            <Color x:Key="DarkRadioButtonColor">#9B9A99</Color>
+            
+            <!--<<<<<<< HEAD
+         
+
+=======
+>>>>>>> Постоянные события-->
+            
+                <Style TargetType="Label">
+                    <Setter Property="TextColor"
+            Value="{AppThemeBinding Light=#141414, Dark=#d3d5d3}"  />
+                </Style>
+                <!--<<<<<<< HEAD-->
+            <Style TargetType="Entry">
+                    <Setter Property="TextColor"
+            Value="{AppThemeBinding Light=#141414, Dark=#d3d5d3}"  />
+                    </Style>
+                    <Style TargetType="Editor">
+                        <Setter Property="TextColor"
+            Value="{AppThemeBinding Light=#141414, Dark=#d3d5d3}"  />
+                    </Style>
+
+
+       
+            <!--=======
+            
+>>>>>>> Постоянные события-->
+                    <!--<Style TargetType="Button">
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightPrimary3}, Dark={StaticResource DarkPrimary3}}"></Setter>
+                        <Setter Property="VisualStateManager.VisualStateGroups">
+                            <VisualStateGroupList>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightPrimary4}, Dark={StaticResource DarkPrimary4}}"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="#332196F3" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </Setter>
+                    </Style>-->
+
+            <LinearGradientBrush  x:Key="LFon" StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#3435a5" Offset="0.0"/>
+                <GradientStop Color="#7b74f9" Offset="0.5"/>
+                <GradientStop Color="#3737a7" Offset="1.0"/>
+            </LinearGradientBrush>
+            
+            <LinearGradientBrush x:Key="LightButtonGrad" StartPoint="0,0" EndPoint="0,0.9">
+                        <GradientStop Color="#fee4b4" Offset="0.01" />
+                        <GradientStop Color="#fdeed3" Offset="0.6" />
+                        <GradientStop Color="#fef0d7" Offset="1.0" />
+                    </LinearGradientBrush>
+                    <LinearGradientBrush x:Key="DarkButtonGrad" StartPoint="0,0" EndPoint="0,0.9">
+                        <GradientStop Color="#6c6c73" Offset="0.01" />
+                        <GradientStop Color="#85858c" Offset="0.4" />
+                        <GradientStop Color="#6c6c73" Offset="1.0" />
+                    </LinearGradientBrush>
+
+                    <LinearGradientBrush x:Key="ListGreenWhiteRed" StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00ff99" Offset="0.01" />
+                        <GradientStop Color="#ffffff" Offset="0.45" />
+                        <GradientStop Color="#ffcccc" Offset="0.9" />
+                        <GradientStop Color="#ff9999" Offset="1.0" />
+                    </LinearGradientBrush>
+
+                    <LinearGradientBrush x:Key="SheLight" StartPoint="0,0" EndPoint="1,0.9">
+                <GradientStop Color="#3435a5" Offset="0.0"/>
+                <GradientStop Color="#7b74f9" Offset="0.5"/>
+                <GradientStop Color="#3737a7" Offset="1.0"/>
+            </LinearGradientBrush>
+                    <LinearGradientBrush x:Key="ShellDark" StartPoint="0,0" EndPoint="1,0.9">
+                        <GradientStop Color="#1C1C1E" Offset="0.01" />
+                        <GradientStop Color="#141414" Offset="0.4" />
+                        <GradientStop Color="#1f1f2f" Offset="1.0" />
+                    </LinearGradientBrush>
+
+
+
+            <Style x:Key="PCard" TargetType="Frame">
+                <Setter Property="HasShadow" 
+            Value="{OnPlatform Android=true, iOS=false, Default=true}"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor"
+            Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark},
+        Light={StaticResource CardBackground}}"/>
+            </Style>
+
+        </ResourceDictionary>
+
+        
+    </Application.Resources>
+</Application>

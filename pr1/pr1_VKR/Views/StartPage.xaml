@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.StartPage"
+             Shell.FlyoutBehavior="Disabled"
+             Background="{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}">
+
+    <Shell.NavBarIsVisible>
+        <OnIdiom x:TypeArguments="x:Boolean">
+            <OnIdiom.Phone>False</OnIdiom.Phone>
+            <OnIdiom.Tablet>False</OnIdiom.Tablet>
+        </OnIdiom>
+    </Shell.NavBarIsVisible>
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row="0" Source="sstu1.png" Aspect="AspectFill"
+                   WidthRequest="450" HeightRequest="450" Opacity="0.2"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <StackLayout Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label Text="Познакомимся?"
+                       FontSize="30" FontAttributes="Bold"
+                       TextColor="White" HorizontalOptions="Center"/>
+
+                <Label Text="Придумайте имя пользователя"
+                       FontSize="15" FontAttributes="Bold"
+                       TextColor="White" HorizontalOptions="Center"/>
+
+                <Frame CornerRadius="10" BackgroundColor="White" HasShadow="True">
+                    <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="20" FontAttributes="Bold"
+                           TextColor="Black" BackgroundColor="Transparent"/>
+                </Frame>
+
+                <Frame CornerRadius="10" BackgroundColor="Gray" HasShadow="True">
+                    <Button Text="Начать"
+                            FontSize="20" FontAttributes="Bold"
+                            TextColor="White" BackgroundColor="Gray"
+                            Clicked="Button_Clicked"/>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

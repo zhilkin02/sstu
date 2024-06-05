@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pr1="clr-namespace:pr1" 
+             x:Class="pr1.Views.StartPage"
+             Shell.FlyoutBehavior="Disabled"
+             Background="{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}">
+
+    <Shell.NavBarIsVisible>
+        <OnIdiom x:TypeArguments="x:Boolean">
+            <OnIdiom.Phone>False</OnIdiom.Phone>
+            <OnIdiom.Tablet>False</OnIdiom.Tablet>
+        </OnIdiom>
+    </Shell.NavBarIsVisible>
+
+    <ContentPage.Content>
+        <Grid>
+
+
+            <Image Source="sstu1.png" Aspect="AspectFill"
+   VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"
+   Opacity="0.1" WidthRequest="500" HeightRequest="500"/>
+
+
+            <StackLayout 
+                
+                         Spacing="20"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+                <Label Text="Расписание университета"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+
+                <Label Text="Выберите нужное расписание"
+                       FontSize="15"
+                       HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+
+                <!--<Frame CornerRadius="10" BackgroundColor="White" HasShadow="True" Opacity="0.6">
+                    <Entry  x:Name="nameEntry" FontSize="20" FontAttributes="Bold"
+                           TextColor="Black" BackgroundColor="Transparent"/>
+                </Frame>-->
+
+                <Frame CornerRadius="10" BackgroundColor="Gray" HasShadow="True">
+                    <Button Text="Групп"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            BackgroundColor="Gray"
+                            Clicked="Button_Clicked_Group"/>
+                    
+                </Frame>
+                <Frame CornerRadius="10" BackgroundColor="Gray" HasShadow="True">
+                    <Button Text="преподавателей"
+            FontSize="20"
+            FontAttributes="Bold"
+            TextColor="White"
+            BackgroundColor="Gray"
+            Clicked="Button_Clicked_Teacher"/>
+
+                </Frame>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

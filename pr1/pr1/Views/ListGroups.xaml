@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage             
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:controls="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Core"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pr1.Views.ListGroups"
+             Title="Список групп"
+             Shell.FlyoutBehavior="Disabled"
+             Background="{AppThemeBinding Light={StaticResource LFon}, Dark={StaticResource DarkButtonGrad}}"
+             >
+
+    <controls:Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Фон с градиентом и картинкой -->
+        <Image Source="sstu1.png" Aspect="AspectFill"
+               WidthRequest="450" HeightRequest="450" Opacity="0.15"
+               HorizontalOptions="Center" VerticalOptions="Center" Grid.RowSpan="3" />
+
+        <!-- Контейнер для белых элементов (поиск и список) -->
+
+        <Frame BackgroundColor="Transparent" CornerRadius="15" Padding="20"
+               Grid.Row="1">
+
+            <StackLayout>
+                <Label Text="Выберите учебную группу"
+                       FontSize="25" FontAttributes="Bold"
+                       TextColor="Black" HorizontalOptions="Center" FontFamily="Tahoma"/>
+
+                <!--SearchBar в белом прямоугольнике-->
+
+                <Frame BackgroundColor="White" CornerRadius="15" Padding="10" Margin="0,5,0,5">
+                    <SearchBar x:Name="searchBar" Placeholder="Поиск группы" TextChanged="OnSearchTextChanged"/>
+                </Frame>
+
+                <!--Список групп-->
+                <ListView x:Name="groupListView" ItemTapped="OnGroupTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Frame BackgroundColor="White" CornerRadius="15" Padding="10" Margin="0,5,0,5" Opacity="0.5">
+                                        <Label TextColor="Black" Text="{Binding GroupName}" FontAttributes="Bold"/>
+                                    </Frame>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Frame>
+
+    </controls:Grid>
+
+</ContentPage>
