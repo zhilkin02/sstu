@@ -16,7 +16,7 @@
         <Grid>
 
 
-            <Image Source="sstu1.png" Aspect="AspectFill"
+            <Image Source="pr11.png" Aspect="AspectFill"
    VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"
    Opacity="0.1" WidthRequest="500" HeightRequest="500"/>
 

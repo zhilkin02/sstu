@@ -90,7 +90,7 @@ namespace pr1
             MainPage =  new AppShell();
            // MainPage = new NavigationPage(new StartPage());
 
-            //  Views.Teacher grup = new Views.Teacher() { TeacherName = " ", ScheduleLink= "https://sstu.my1.ru/36284.html" };
+            //  Views.Teacher grup = new Views.Teacher() { TeacherName = " ", ScheduleLink= "https://pr1.my1.ru/36284.html" };
             //MainPage = new ListTeacher();
             //  MainPage = new SchedulePage2(grup);
 

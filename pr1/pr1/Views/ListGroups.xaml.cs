@@ -52,25 +52,25 @@ namespace pr1.Views
         //private void LoadGroupsData()
         //{
 
-        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-11", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б-РКЛМ-21", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "Б1-ИВЧТ-31", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б-ТЛВД-41", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "Б1-ПИНЖ-31", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-11", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-21", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "Б1-ИВЧТ-31", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-41", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-31", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
-        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-32", ScheduleLink = "https://rasp.sstu.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-11", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б-РКЛМ-21", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "Б1-ИВЧТ-31", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б-ТЛВД-41", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "Б1-ПИНЖ-31", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-11", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-21", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "Б1-ИВЧТ-31", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б1-ИВЧТ-41", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-31", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
+        //    Groups.Add(new Group { GroupName = "б-ПИНЖ-32", ScheduleLink = "https://rasp.pr1.ru/rasp/group/8" });
         //}
 
 
         private async void LoadGroupsDataFromParser()
         {
-           // var parserResult = await ParsingAsync("https://rasp.sstu.ru/");
-           // var parserResult = await ParsingAsync("https://web.archive.org/web/20220125183833/https://rasp.sstu.ru/");
-            var parserResult = await ParsingAsync("https://sstu.my1.ru/groups.html");
+            var parserResult = await ParsingAsync("https://rasp.sstu.ru/");
+           // var parserResult = await ParsingAsync("https://web.archive.org/web/20220125183833/https://rasp.pr1.ru/");
+           // var parserResult = await ParsingAsync("https://pr1.my1.ru/groups.html");
 
 
             if (parserResult != null && parserResult.ContainsKey("Группы и ссылки на расписание"))
@@ -122,10 +122,10 @@ namespace pr1.Views
                                 {
                                     var groupName = groupLink.TextContent.Trim();
                                     var groupUrlRelative = groupLink.GetAttribute("href");
-                                   // var groupUrlFull = new Uri(new Uri("https://rasp.sstu.ru"), groupUrlRelative).ToString();
+                                    var groupUrlFull = new Uri(new Uri("https://rasp.sstu.ru"), groupUrlRelative).ToString();
                                     //  var groupUrlFull = new Uri(new Uri("https://web.archive.org"), groupUrlRelative).ToString();
                                 
-                                    var groupUrlFull = new Uri(new Uri("https://sstu.my1.ru/group"), groupUrlRelative).ToString();
+                                   // var groupUrlFull = new Uri(new Uri("https://pr1.my1.ru/group"), groupUrlRelative).ToString();
                                     res.Add(new List<string> { groupName, groupUrlFull });
                                 }
                             }

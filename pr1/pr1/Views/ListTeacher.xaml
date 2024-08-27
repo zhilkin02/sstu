@@ -17,7 +17,7 @@
         </Grid.RowDefinitions>
 
         <!-- Фон с градиентом и картинкой -->
-        <Image Source="sstu1.png" Aspect="AspectFill"
+        <Image Source="pr11.png" Aspect="AspectFill"
                WidthRequest="450" HeightRequest="450" Opacity="0.15"
                HorizontalOptions="Center" VerticalOptions="Center" Grid.RowSpan="3" />
 

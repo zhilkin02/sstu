@@ -10,7 +10,7 @@
     <Shell.FlyoutHeaderTemplate>
         <DataTemplate>
             <Grid BackgroundColor="Transparent" HeightRequest="80">
-                <Image TranslationX="100" Source="sstu1.png" Opacity="0.8" Rotation="34" />
+                <Image TranslationX="100" Source="pr11.png" Opacity="0.8" Rotation="34" />
                 <Label Text="Меню" TextColor="White" FontSize="50" FontAttributes="Bold" TranslationX="-80" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
             </Grid>
         </DataTemplate>

@@ -26,7 +26,7 @@ namespace pr1.Views
             Shell.SetFlyoutItemIsVisible(this, false);
             Shell.SetTabBarIsVisible(this, false);
 
-            LoadGroupsDataFromParser();
+            LoadTeachersDataFromParser();
 
             teacherListView.ItemsSource = Teachers;
         }
@@ -48,10 +48,10 @@ namespace pr1.Views
         }
 
     
-        private async void LoadGroupsDataFromParser()
+        private async void LoadTeachersDataFromParser()
         {
-            // var parserResult = await ParsingAsync("https://rasp.sstu.ru/rasp/teachers/");
-            var parserResult = await ParsingAsync("https://sstu.my1.ru/teachers.html");
+             var parserResult = await ParsingAsync("https://rasp.sstu.ru/rasp/teachers/");
+            //var parserResult = await ParsingAsync("https://pr1.my1.ru/teachers.html");
 
 
             if (parserResult != null && parserResult.ContainsKey("Группы и ссылки на расписание"))
@@ -90,25 +90,25 @@ namespace pr1.Views
 
                     if (raspBlock != null)
                     {
-                        var groups = raspBlock.QuerySelectorAll(".teacher");
+                        var teachers = raspBlock.QuerySelectorAll(".teacher");
 
-                        if (groups != null && groups.Length > 0)
+                        if (teachers != null && teachers.Length > 0)
                         {
                             var res = new List<List<string>>();
 
-                            foreach (var group in groups)
+                            foreach (var teacher in teachers)
                             {
-                                Console.WriteLine("prepod: "+ group.Text());
+                                Console.WriteLine("prepod: "+ teacher.Text());
 
-                                var groupLink = group.QuerySelector("a");
-                                if (groupLink != null)
+                                var teacherLink = teacher.QuerySelector("a");
+                                if (teacherLink != null)
                                 {
-                                    var groupName = groupLink.TextContent.Trim();
-                                    var groupUrlRelative = groupLink.GetAttribute("href");
-                                   // var groupUrlFull = new Uri(new Uri("https://rasp.sstu.ru"), groupUrlRelative).ToString();
-                                      var groupUrlFull = new Uri(new Uri("https://sstu.my1.ru"), groupUrlRelative).ToString();
-
-                                    res.Add(new List<string> { groupName, groupUrlFull });
+                                    var groupName = teacherLink.TextContent.Trim();
+                                    var teacherUrlRelative = teacherLink.GetAttribute("href");
+                                    var groupUrlFull = new Uri(new Uri("https://rasp.sstu.ru"), teacherUrlRelative).ToString();
+                                    //   var groupUrlFull = new Uri(new Uri("https://pr1.my1.ru"), groupUrlRelative).ToString();
+                                  //  Console.WriteLine("тест teacherUrlRelative: " + teacherUrlRelative);
+                                     res.Add(new List<string> { groupName, groupUrlFull });
                                 }
                             }
 
@@ -141,7 +141,7 @@ namespace pr1.Views
         {
             if (sender is ListView listView && listView.SelectedItem is Teacher selectedTeacher)
             {
-              //  Views.Teacher grup = new Views.Teacher() { TeacherName = " ", ScheduleLink = "https://sstu.my1.ru/36284.html" };
+              //  Views.Teacher grup = new Views.Teacher() { TeacherName = " ", ScheduleLink = "https://pr1.my1.ru/36284.html" };
 
                // DisplayAlert("тест", "выбран: " + selectedTeacher.TeacherName + ": " + selectedTeacher.ScheduleLink+"\n"+
               //   "создан: " + grup.TeacherName+": "+ grup.ScheduleLink, "OK");
